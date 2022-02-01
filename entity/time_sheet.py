@@ -1,4 +1,5 @@
 from calendar import monthrange
+from datetime import time
 
 from entity.input_output import InputOutput
 
@@ -27,6 +28,21 @@ class TimeSheet:
     return f'{day + 1} ' + '; '.join([ 
       str(input_output) for input_output in input_outputs
     ])
+
+  def add_hour(self, day: int, hour: time):
+
+    time_sheet_day = self.get_day(day)
+
+    if len(time_sheet_day) == 0:
+      time_sheet_day.append(InputOutput(start=hour))
+      return
+
+    input_output = time_sheet_day[-1]
+    if input_output.get_input() and not input_output.get_output():
+      input_output.set_end_time(hour)
+      return
+
+    time_sheet_day.append(InputOutput(start=hour))
 
   def __str__(self):
     MAX_NUMBER_DAY = len(self.days)
