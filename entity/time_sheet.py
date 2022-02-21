@@ -15,7 +15,7 @@ class TimeSheet:
     self.month = month
     self.days = [ [] for _ in range(0, number_days) ] 
 
-  def get_day(self, day: int) -> [InputOutput]: 
+  def get_day(self, day: int): 
     MAX_NUMBER_DAY = len(self.days) - 1
 
     if not (0 <= day <= MAX_NUMBER_DAY):

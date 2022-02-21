@@ -1,4 +1,5 @@
 from entity.time_sheet import TimeSheet
+
 class Functionary:
 
   def __init__(self, name: str) -> None:

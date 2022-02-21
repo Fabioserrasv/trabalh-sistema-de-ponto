@@ -14,4 +14,5 @@ class DateExample:
     self.__date = self.__date + ONE_DAY
 
   def get_date(self):
-    return self.__date
+    current_date = self.__date.strftime("%d/%m/%Y %H:%M:%S")
+    return datetime.strptime(current_date, "%d/%m/%Y %H:%M:%S")
